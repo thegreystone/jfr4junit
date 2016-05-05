@@ -43,7 +43,6 @@ public class JDK78EventEmitter implements JFREmitter {
 
 	@Override
 	public void startEvent(TestExtensionContext ctx) {
-		System.out.println("78 - start");
 		TestEvent testEvent = new TestEvent();
 		ExceptionEvent exceptionEvent = new ExceptionEvent();
 
@@ -59,7 +58,6 @@ public class JDK78EventEmitter implements JFREmitter {
 
 	@Override
 	public void endEvent(TestExtensionContext ctx) {
-		System.out.println("78 - end");
 		TestEvent testEvent = eventMap.get(ctx.getUniqueId());
 		if (testEvent == null) {
 			// Exception event...
@@ -72,7 +70,6 @@ public class JDK78EventEmitter implements JFREmitter {
 
 	@Override
 	public void endFail(TestExtensionContext ctx, Throwable t) {
-		System.out.println("78 - fail");
 		ExceptionEvent exceptionEvent = errorMap.get(ctx.getUniqueId());
 		if (exceptionEvent == null) {
 			// Exception event...
