@@ -60,19 +60,16 @@ public class JFRJUnit5Extension implements BeforeEachExtensionPoint, AfterEachEx
 	
 	@Override
 	public void beforeEach(TestExtensionContext ctx) throws Exception {
-		System.out.println("Before:" + ctx);
 		EMITTER.startEvent(ctx);
 	}
 
 	@Override
 	public void afterEach(TestExtensionContext ctx) throws Exception {
-		System.out.println("After:" + ctx);
 		EMITTER.endEvent(ctx);		
 	}
 
 	@Override
 	public void handleException(TestExtensionContext ctx, Throwable e) throws Throwable {
-		System.out.println("Exception:" + ctx);		
 		EMITTER.endFail(ctx, e);		
 	}
 }
