@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/marcus.APPEAL.SE/git/junit5/junit4-engine/build/libs/junit4-engine-5.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/marcus.APPEAL.SE/git/junit5/junit5-engine/build/libs/junit5-engine-5.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/marcus.APPEAL.SE/git/junit5/junit5-api/build/libs/junit5-api-5.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/marcus.APPEAL.SE/git/junit5/junit-commons/build/libs/junit-commons-5.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/marcus.APPEAL.SE/git/junit5/junit-console/build/libs/junit-console-5.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/marcus.APPEAL.SE/git/junit5/junit-engine-api/build/libs/junit-engine-api-5.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Users/marcus.APPEAL.SE/git/junit5/junit-launcher/build/libs/junit-launcher-5.0.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="C:/Java/Libs/craplibs/jopt-simple-4.9.jar"/>
+	<classpathentry kind="lib" path="C:/Java/Libs/craplibs/junit-4.12.jar"/>
+	<classpathentry kind="lib" path="C:/Java/Libs/craplibs/opentest4j-1.0.0-ALPHA.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
