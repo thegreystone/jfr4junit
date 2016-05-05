@@ -35,7 +35,7 @@ import static org.junit.gen5.api.Assertions.assertEquals;
 import org.junit.gen5.api.Test;
 import org.junit.gen5.api.extension.ExtendWith;
 
-@ExtendWith(JFRJUnit5Extension.class)
+@ExtendWith(JFRExtension.class)
 public class MyFirstTest {
 	@Test
 	void okTest() {

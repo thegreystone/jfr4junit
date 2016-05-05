@@ -33,7 +33,9 @@ package se.hirt.jfr4junit.jdk7;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
 import org.junit.gen5.api.extension.TestExtensionContext;
+
 import se.hirt.jfr4junit.JFREmitter;
 
 @SuppressWarnings("deprecation")

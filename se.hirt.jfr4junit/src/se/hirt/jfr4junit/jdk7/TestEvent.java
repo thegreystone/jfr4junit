@@ -41,13 +41,13 @@ import com.oracle.jrockit.jfr.ValueDefinition;
 public class TestEvent extends TimedEvent {
 	private final static EventToken TOKEN;
 
-    @ValueDefinition(name = "Display Name", description = "The display name for the test.")
+	@ValueDefinition(name = "Display Name", description = "The display name for the test.")
 	private String displayName;
-	
+
 	static {
 		TOKEN = JFR7Utils.register(TestEvent.class);
 	}
-	
+
 	public TestEvent() {
 		super(TOKEN);
 	}
@@ -55,7 +55,7 @@ public class TestEvent extends TimedEvent {
 	public void setDisplayName(String displayName) {
 		this.displayName = displayName;
 	}
-	
+
 	public String getDisplayName() {
 		return displayName;
 	}

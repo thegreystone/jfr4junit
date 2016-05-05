@@ -47,7 +47,7 @@ public class JFR7Utils {
 
 	static {
 		URI producerURI = URI.create("http://hirt.se/junit/");
-		PRODUCER = new Producer("JFR Producer for JUnit tests", "These events are produced by the JFRUnit5Extension.",
+		PRODUCER = new Producer("JFR Producer for JUnit tests", "These events are produced by the JFRExtension.",
 				producerURI);
 		PRODUCER.register();
 	}

@@ -39,8 +39,9 @@ import org.junit.gen5.api.extension.TestExtensionContext;
 import se.hirt.jfr4junit.jdk7.JDK78EventEmitter;
 import se.hirt.jfr4junit.jdk9.JDK9EventEmitter;
 
-public class JFRJUnit5Extension implements BeforeEachExtensionPoint, AfterEachExtensionPoint, ExceptionHandlerExtensionPoint {
+public class JFRExtension implements BeforeEachExtensionPoint, AfterEachExtensionPoint, ExceptionHandlerExtensionPoint {
 	private static final JFREmitter EMITTER;
+
 	static {
 		// Check if there is a JDK 7 or 8 implementation available...
 		JFREmitter emitter = null;
@@ -52,12 +53,12 @@ public class JFRJUnit5Extension implements BeforeEachExtensionPoint, AfterEachEx
 				Class.forName("jdk.jfr.ValueDescriptor");
 				emitter = new JDK9EventEmitter();
 			} catch (ClassNotFoundException e1) {
-				emitter = new NullEmitter();		
+				emitter = new NullEmitter();
 			}
 		}
 		EMITTER = emitter;
 	}
-	
+
 	@Override
 	public void beforeEach(TestExtensionContext ctx) throws Exception {
 		EMITTER.startEvent(ctx);
@@ -65,11 +66,11 @@ public class JFRJUnit5Extension implements BeforeEachExtensionPoint, AfterEachEx
 
 	@Override
 	public void afterEach(TestExtensionContext ctx) throws Exception {
-		EMITTER.endEvent(ctx);		
+		EMITTER.endEvent(ctx);
 	}
 
 	@Override
 	public void handleException(TestExtensionContext ctx, Throwable e) throws Throwable {
-		EMITTER.endFail(ctx, e);		
+		EMITTER.endFail(ctx, e);
 	}
 }
