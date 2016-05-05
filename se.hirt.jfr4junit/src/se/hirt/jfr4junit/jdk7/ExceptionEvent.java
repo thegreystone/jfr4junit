@@ -52,8 +52,8 @@ public class ExceptionEvent extends TimedEvent {
     @ValueDefinition(name = "Exception Message", description = "The exception message for the exception.")
 	private String exceptionMessage;
 		
-    @ValueDefinition(name = "Exception class", description = "The class of the exception.", contentType = ContentType.None)
-    private String exceptionClass;
+    @ValueDefinition(name = "Exception class", description = "The class of the exception.")
+    private Class<?> exceptionClass;
     
     public ExceptionEvent() {
     	super(TOKEN);
@@ -75,11 +75,11 @@ public class ExceptionEvent extends TimedEvent {
     	this.exceptionMessage = exceptionMessage;
     }
 
-	public String getExceptionClass() {
+	public Class<?> getExceptionClass() {
 		return exceptionClass;
 	}
 
-	public void setExceptionClass(String exceptionClass) {
+	public void setExceptionClass(Class<?> exceptionClass) {
 		this.exceptionClass = exceptionClass;
 	}
     

@@ -76,7 +76,7 @@ public class JDK78EventEmitter implements JFREmitter {
 			return;
 		}
 		exceptionEvent.setExceptionMessage(t.getMessage());
-		exceptionEvent.setExceptionClass(exceptionEvent.getClass().getName());
+		exceptionEvent.setExceptionClass(exceptionEvent.getClass());
 		exceptionEvent.commit();
 		exceptionEvent.end();
 		errorMap.remove(ctx.getUniqueId());
