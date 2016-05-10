@@ -7,7 +7,7 @@ import jdk.jfr.Label;
 
 @Label("TestEvent")
 @Description("An event wrapping the execution of a JUnit test.")
-@Category("/junit/")
+@Category("junit/")
 public class TestEvent extends Event {
 	@Label("Display Name")
 	@Description("The display name for the test.")

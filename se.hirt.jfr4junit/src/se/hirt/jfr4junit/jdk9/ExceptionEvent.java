@@ -6,7 +6,7 @@ import jdk.jfr.Event;
 import jdk.jfr.Label;
 @Label("ExceptionEvent")
 @Description("An event wrapping the execution of a JUnit test throwing an exception an exception.")
-@Category("/junit/")
+@Category("junit/")
 public class ExceptionEvent extends Event {
 	@Label("Display Name")
 	@Description("The display name for the test.")
