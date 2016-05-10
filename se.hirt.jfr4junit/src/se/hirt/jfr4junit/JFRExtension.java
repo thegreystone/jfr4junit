@@ -31,14 +31,14 @@
  */
 package se.hirt.jfr4junit;
 
+import java.util.logging.Logger;
+
 import org.junit.gen5.api.extension.AfterEachExtensionPoint;
 import org.junit.gen5.api.extension.BeforeEachExtensionPoint;
 import org.junit.gen5.api.extension.ExceptionHandlerExtensionPoint;
 import org.junit.gen5.api.extension.TestExtensionContext;
 
-import se.hirt.jfr4junit.jdk7.JDK78EventEmitter;
-import se.hirt.jfr4junit.jdk9.JDK9EventEmitter;
-
+@SuppressWarnings("unchecked")
 public class JFRExtension implements BeforeEachExtensionPoint, AfterEachExtensionPoint, ExceptionHandlerExtensionPoint {
 	private static final JFREmitter EMITTER;
 
@@ -47,13 +47,18 @@ public class JFRExtension implements BeforeEachExtensionPoint, AfterEachExtensio
 		JFREmitter emitter = null;
 		try {
 			Class.forName("com.oracle.jrockit.jfr.TimedEvent");
-			emitter = new JDK78EventEmitter();
-		} catch (ClassNotFoundException e) {
+			Class<? extends JFREmitter> clazz = (Class<? extends JFREmitter>) Class.forName("se.hirt.jfr4junit.jdk7.JDK78EventEmitter");
+			emitter = clazz.newInstance();
+			getLogger().info("Using JDK7 and 8 compatible event emitter.");
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
 			try {
 				Class.forName("jdk.jfr.ValueDescriptor");
-				emitter = new JDK9EventEmitter();
-			} catch (ClassNotFoundException e1) {
+				Class<? extends JFREmitter> clazz = (Class<? extends JFREmitter>) Class.forName("se.hirt.jfr4junit.jdk9.JDK9EventEmitter");
+				emitter = clazz.newInstance();
+				getLogger().info("Using JDK9 compatible event emitter.");
+			} catch (ClassNotFoundException | InstantiationException | IllegalAccessException e1) {
 				emitter = new NullEmitter();
+				getLogger().info("Could not find relevant JFR classes. Using NULL emitter. No events will be recorded from the JFRExtension.");
 			}
 		}
 		EMITTER = emitter;
@@ -72,5 +77,9 @@ public class JFRExtension implements BeforeEachExtensionPoint, AfterEachExtensio
 	@Override
 	public void handleException(TestExtensionContext ctx, Throwable e) throws Throwable {
 		EMITTER.endFail(ctx, e);
+	}
+	
+	private static Logger getLogger() {
+		return Logger.getLogger(JFRExtension.class.getName());
 	}
 }

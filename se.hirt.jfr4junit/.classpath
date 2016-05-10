@@ -13,5 +13,6 @@
 	<classpathentry kind="lib" path="C:/Java/Libs/craplibs/jopt-simple-4.9.jar"/>
 	<classpathentry kind="lib" path="C:/Java/Libs/craplibs/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="C:/Java/Libs/craplibs/opentest4j-1.0.0-ALPHA.jar"/>
+	<classpathentry kind="lib" path="C:/Java/Libs/jfrdisabled_jdk9/jfr-disabled.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
