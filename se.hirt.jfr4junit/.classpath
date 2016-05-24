@@ -32,6 +32,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Java/Libs/junit5/junit5-api-5.0.0-20160524.191938-790.jar"/>
+	<classpathentry kind="lib" path="C:/Java/Libs/junit5/junit5-api-5.0.0-20160524.224651-792.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -76,7 +76,7 @@ public class JDK78EventEmitter implements JFREmitter {
 	}
 
 	@Override
-	public void endFail(TestExtensionContext ctx, Throwable t) {
+	public void endException(TestExtensionContext ctx, Throwable t) {
 		ExceptionEvent exceptionEvent = errorMap.get(ctx.getUniqueId());
 		if (exceptionEvent == null) {
 			// Exception event...

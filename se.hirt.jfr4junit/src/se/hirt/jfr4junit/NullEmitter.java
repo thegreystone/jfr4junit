@@ -49,6 +49,6 @@ public class NullEmitter implements JFREmitter {
 	}
 
 	@Override
-	public void endFail(TestExtensionContext ctx, Throwable t) {
+	public void endException(TestExtensionContext ctx, Throwable t) {
 	}
 }

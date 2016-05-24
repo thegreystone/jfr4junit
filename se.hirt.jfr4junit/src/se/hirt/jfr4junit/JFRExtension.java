@@ -35,7 +35,7 @@ import java.util.logging.Logger;
 
 import org.junit.gen5.api.extension.AfterEachCallback;
 import org.junit.gen5.api.extension.BeforeEachCallback;
-import org.junit.gen5.api.extension.ExceptionHandler;
+import org.junit.gen5.api.extension.TestExecutionExceptionHandler;
 import org.junit.gen5.api.extension.TestExtensionContext;
 
 /**
@@ -44,7 +44,7 @@ import org.junit.gen5.api.extension.TestExtensionContext;
  * @author Marcus Hirt
  */
 @SuppressWarnings("unchecked")
-public class JFRExtension implements BeforeEachCallback, AfterEachCallback, ExceptionHandler {
+public class JFRExtension implements BeforeEachCallback, AfterEachCallback, TestExecutionExceptionHandler {
 	private static final JFREmitter EMITTER;
 
 	static {
@@ -80,8 +80,8 @@ public class JFRExtension implements BeforeEachCallback, AfterEachCallback, Exce
 	}
 
 	@Override
-	public void handleException(TestExtensionContext ctx, Throwable e) throws Throwable {
-		EMITTER.endFail(ctx, e);
+	public void handleTestExecutionException(TestExtensionContext ctx, Throwable e) throws Throwable {
+		EMITTER.endException(ctx, e);
 	}
 	
 	private static Logger getLogger() {

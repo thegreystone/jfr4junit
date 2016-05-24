@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>se.hirt.jfr4junit</groupId>
   <artifactId>se.hirt.jfr4junit</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.0.3-SNAPSHOT</version>
   <name>jfr4junit</name>   
   <description>JUnit 5 extension for creating JFR events whenever a test is run. This makes it easy to identify individual tests when analysing the flight recording. Put the jfr4junit plugin on the classpath and use the annotation @ExtendWith(JFRExtension.class) for test classes where you want JFR events emitted.</description>
   
@@ -58,24 +58,29 @@
       </plugin>
     </plugins>
   </build>
+  
   <organization>
   	<url>hirt.se/blog</url>
   	<name>hirt.se</name>
   </organization>
+  
   <scm>
-  	<url>https://github.com/thegreystone/jfr4junit.git</url>
+    <url>https://github.com/thegreystone/jfr4junit.git</url>
   </scm>
   <url>https://github.com/thegreystone/jfr4junit</url>
+  
   <properties>
   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   	<junit.gen5.version>5.0.0-SNAPSHOT</junit.gen5.version>
   </properties>
+  
   <dependencies>
     <dependency>
       <!-- This is currently a locally installed version of the JDK9 jfr-disabled.jar, as JDK 9 has not been released yet -->
       <groupId>jfr-disabled</groupId>
       <artifactId>jfr-disabled</artifactId>
       <version>9.0.0</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>org.junit</groupId>
@@ -83,4 +88,17 @@
       <version>${junit.gen5.version}</version>
     </dependency>
   </dependencies>
+  
+  <distributionManagement>
+    <repository>
+      <id>releaserepo</id>
+      <name>Github Release</name>
+	  <url>file:///C:/Users/marcus.APPEAL.SE/git/mvn-repo/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>snapshotrepo</id>
+      <name>Github Snapshot</name>
+      <url>file:///C:/Users/marcus.APPEAL.SE/git/mvn-repo/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
  </project>

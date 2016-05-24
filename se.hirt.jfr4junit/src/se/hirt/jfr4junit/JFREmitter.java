@@ -39,7 +39,16 @@ import org.junit.gen5.api.extension.TestExtensionContext;
  * @author Marcus Hirt
  */
 public interface JFREmitter {
+	/**
+	 * Called when a test is started.
+	 */
 	void startEvent(TestExtensionContext ctx);
+	/**
+	 * Called when a test is ended.
+	 */
 	void endEvent(TestExtensionContext ctx);
-	void endFail(TestExtensionContext ctx, Throwable t);
+	/**
+	 * Called when a test has thrown an exception.
+	 */
+	void endException(TestExtensionContext ctx, Throwable t);
 }
