@@ -1,0 +1,12 @@
+eclipse.preferences.version=1
+encoding//src/se/hirt/jfr4junit/JFREmitter.java=UTF-8
+encoding//src/se/hirt/jfr4junit/JFRExtension.java=UTF-8
+encoding//src/se/hirt/jfr4junit/NullEmitter.java=UTF-8
+encoding//src/se/hirt/jfr4junit/jdk7/ExceptionEvent.java=UTF-8
+encoding//src/se/hirt/jfr4junit/jdk7/JDK78EventEmitter.java=UTF-8
+encoding//src/se/hirt/jfr4junit/jdk7/JFR7Utils.java=UTF-8
+encoding//src/se/hirt/jfr4junit/jdk7/TestEvent.java=UTF-8
+encoding//src/se/hirt/jfr4junit/jdk9/ExceptionEvent.java=UTF-8
+encoding//src/se/hirt/jfr4junit/jdk9/JDK9EventEmitter.java=UTF-8
+encoding//src/se/hirt/jfr4junit/jdk9/TestEvent.java=UTF-8
+encoding//test/se/hirt/jfr4junit/MyFirstTest.java=UTF-8
