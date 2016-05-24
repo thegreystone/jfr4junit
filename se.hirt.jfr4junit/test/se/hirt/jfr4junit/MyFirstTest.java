@@ -35,6 +35,11 @@ import static org.junit.gen5.api.Assertions.assertEquals;
 import org.junit.gen5.api.Test;
 import org.junit.gen5.api.extension.ExtendWith;
 
+/**
+ * Example test class using the JFRExtension.
+ * 
+ * @author Marcus Hirt
+ */
 @ExtendWith(JFRExtension.class)
 public class MyFirstTest {
 	@Test

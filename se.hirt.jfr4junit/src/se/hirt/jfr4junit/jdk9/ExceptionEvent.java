@@ -4,6 +4,13 @@ import jdk.jfr.Category;
 import jdk.jfr.Description;
 import jdk.jfr.Event;
 import jdk.jfr.Label;
+
+
+/**
+ * Event for when a test ended with an exception being thrown.
+ * 
+ * @author Marcus Hirt
+ */
 @Label("ExceptionEvent")
 @Description("An event wrapping the execution of a JUnit test throwing an exception an exception.")
 @Category("junit/")

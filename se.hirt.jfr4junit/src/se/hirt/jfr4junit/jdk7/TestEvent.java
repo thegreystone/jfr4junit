@@ -36,7 +36,12 @@ import com.oracle.jrockit.jfr.EventToken;
 import com.oracle.jrockit.jfr.TimedEvent;
 import com.oracle.jrockit.jfr.ValueDefinition;
 
-@SuppressWarnings("deprecation")
+/**
+ * Event for a test being run.
+ * 
+ * @author Marcus Hirt
+ */
+@SuppressWarnings({ "deprecation", "restriction" })
 @EventDefinition(path = "junit/testevent", name = "TestEvent", description = "An event wrapping the execution of a JUnit test.", stacktrace = true, thread = true)
 public class TestEvent extends TimedEvent {
 	private final static EventToken TOKEN;

@@ -38,6 +38,11 @@ import org.junit.gen5.api.extension.TestExtensionContext;
 
 import se.hirt.jfr4junit.JFREmitter;
 
+/**
+ * Event emitter for JDK 9 and above.
+ * 
+ * @author Marcus Hirt
+ */
 public class JDK9EventEmitter implements JFREmitter {
 	private final Map<String, TestEvent> eventMap = new ConcurrentHashMap<>();
 	private final Map<String, ExceptionEvent> errorMap = new ConcurrentHashMap<>();

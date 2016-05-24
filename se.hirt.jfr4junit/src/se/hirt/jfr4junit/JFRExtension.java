@@ -33,13 +33,18 @@ package se.hirt.jfr4junit;
 
 import java.util.logging.Logger;
 
-import org.junit.gen5.api.extension.AfterEachExtensionPoint;
-import org.junit.gen5.api.extension.BeforeEachExtensionPoint;
-import org.junit.gen5.api.extension.ExceptionHandlerExtensionPoint;
+import org.junit.gen5.api.extension.AfterEachCallback;
+import org.junit.gen5.api.extension.BeforeEachCallback;
+import org.junit.gen5.api.extension.ExceptionHandler;
 import org.junit.gen5.api.extension.TestExtensionContext;
 
+/**
+ * The JUnit5 extension class.
+ * 
+ * @author Marcus Hirt
+ */
 @SuppressWarnings("unchecked")
-public class JFRExtension implements BeforeEachExtensionPoint, AfterEachExtensionPoint, ExceptionHandlerExtensionPoint {
+public class JFRExtension implements BeforeEachCallback, AfterEachCallback, ExceptionHandler {
 	private static final JFREmitter EMITTER;
 
 	static {

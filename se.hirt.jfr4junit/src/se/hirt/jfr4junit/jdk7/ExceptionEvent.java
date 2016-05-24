@@ -36,7 +36,12 @@ import com.oracle.jrockit.jfr.EventToken;
 import com.oracle.jrockit.jfr.TimedEvent;
 import com.oracle.jrockit.jfr.ValueDefinition;
 
-@SuppressWarnings("deprecation")
+/**
+ * Event for when a test ended with an exception being thrown.
+ * 
+ * @author Marcus Hirt
+ */
+@SuppressWarnings({ "deprecation", "restriction" })
 @EventDefinition(path = "junit/exceptionevent", name = "ExceptionEvent", description = "An event wrapping the execution of a JUnit test throwing an exception an exception.", stacktrace = true, thread = true)
 public class ExceptionEvent extends TimedEvent {
 	private final static EventToken TOKEN;

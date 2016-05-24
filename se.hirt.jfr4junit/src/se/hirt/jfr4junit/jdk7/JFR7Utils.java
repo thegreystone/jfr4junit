@@ -41,10 +41,16 @@ import com.oracle.jrockit.jfr.InvalidEventDefinitionException;
 import com.oracle.jrockit.jfr.InvalidValueException;
 import com.oracle.jrockit.jfr.Producer;
 
-@SuppressWarnings("deprecation")
+/**
+ * Toolkit with helper methods for JDK7 and 8.
+ * 
+ * @author Marcus Hirt
+ */
+@SuppressWarnings({ "deprecation", "restriction" })
 public class JFR7Utils {
 	public final static Producer PRODUCER;
 
+	// Register the producer and keep the reference around
 	static {
 		URI producerURI = URI.create("http://hirt.se/junit/");
 		PRODUCER = new Producer("JFR Producer for JUnit tests", "These events are produced by the JFRExtension.",
@@ -52,6 +58,17 @@ public class JFR7Utils {
 		PRODUCER.register();
 	}
 
+	private JFR7Utils() {
+		throw new UnsupportedOperationException("Toolkit! Do not instantiate!");
+	}
+
+	/**
+	 * Helper method to register an event class with the JUnit producer.
+	 * 
+	 * @param clazz
+	 *            the event class to register.
+	 * @return the token associated with the event class.
+	 */
 	public static EventToken register(Class<? extends InstantEvent> clazz) {
 		try {
 			return PRODUCER.addEvent(clazz);

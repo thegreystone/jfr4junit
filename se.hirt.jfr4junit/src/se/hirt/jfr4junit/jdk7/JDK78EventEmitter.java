@@ -38,7 +38,12 @@ import org.junit.gen5.api.extension.TestExtensionContext;
 
 import se.hirt.jfr4junit.JFREmitter;
 
-@SuppressWarnings("deprecation")
+/**
+ * Event emitter for JDK 7 and 8.
+ * 
+ * @author Marcus Hirt
+ */
+@SuppressWarnings({ "deprecation", "restriction" })
 public class JDK78EventEmitter implements JFREmitter {
 	private final Map<String, TestEvent> eventMap = new ConcurrentHashMap<>();
 	private final Map<String, ExceptionEvent> errorMap = new ConcurrentHashMap<>();

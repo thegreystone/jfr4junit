@@ -33,6 +33,11 @@ package se.hirt.jfr4junit;
 
 import org.junit.gen5.api.extension.TestExtensionContext;
 
+/**
+ * Interface for event emitters.
+ * 
+ * @author Marcus Hirt
+ */
 public interface JFREmitter {
 	void startEvent(TestExtensionContext ctx);
 	void endEvent(TestExtensionContext ctx);
