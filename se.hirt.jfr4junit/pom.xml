@@ -84,14 +84,10 @@
   
   <distributionManagement>
     <repository>
-      <id>releaserepo</id>
-      <name>Github Release</name>
-	  <url>file:///C:/Users/marcus.APPEAL.SE/git/mvn-repo/releases</url>
+      <id>bintray-repo-jfr4junit</id>
+      <name>Bintray Release</name>
+      <url>https://api.bintray.com/maven/thegreystone/maven-repo/jfr4junit/;publish=1</url>
     </repository>
-    <snapshotRepository>
-      <id>snapshotrepo</id>
-      <name>Github Snapshot</name>
-      <url>file:///C:/Users/marcus.APPEAL.SE/git/mvn-repo/snapshots</url>
-    </snapshotRepository>
   </distributionManagement>
+  
  </project>
