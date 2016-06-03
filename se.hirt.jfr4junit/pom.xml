@@ -76,13 +76,6 @@
   
   <dependencies>
     <dependency>
-      <!-- This is currently a locally installed version of the JDK9 jfr-disabled.jar, as JDK 9 has not been released yet -->
-      <groupId>jfr-disabled</groupId>
-      <artifactId>jfr-disabled</artifactId>
-      <version>9.0.0</version>
-      <scope>provided</scope>
-    </dependency>
-    <dependency>
       <groupId>org.junit</groupId>
       <artifactId>junit5-api</artifactId>
       <version>${junit.gen5.version}</version>
