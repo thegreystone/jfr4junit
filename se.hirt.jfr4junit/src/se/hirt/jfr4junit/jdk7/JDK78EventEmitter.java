@@ -67,30 +67,33 @@ public class JDK78EventEmitter implements JFREmitter {
 	public void endEvent(TestExtensionContext ctx) {
 		TestEvent testEvent = eventMap.get(ctx.getUniqueId());
 		if (testEvent == null) {
-			// Exception event...
+			// Got an exception event - all done
 			return;
 		}
+		// Ugly optimization. For DurationEvent calling end would be required, but not for TimedEvent.		
 		testEvent.commit();
-		testEvent.end();
 		removeEvent(ctx);
+		removeExceptionEvent(ctx);
 	}
 
 	@Override
 	public void endException(TestExtensionContext ctx, Throwable t) {
 		ExceptionEvent exceptionEvent = errorMap.get(ctx.getUniqueId());
 		if (exceptionEvent == null) {
-			// Exception event...
-			return;
+			// This really should not happen...
+			throw new IllegalStateException("No associated exception event found!");
 		}
 		exceptionEvent.setExceptionMessage(t.getMessage());
-		exceptionEvent.setExceptionClass(exceptionEvent.getClass());
+		exceptionEvent.setExceptionClass(t.getClass());
+		// Ugly optimization. For DurationEvent calling end would be required, but not for TimedEvent.		
 		exceptionEvent.commit();
-		exceptionEvent.end();
-		errorMap.remove(ctx.getUniqueId());
-		TestEvent testEvent = eventMap.get(ctx.getUniqueId());
-		// End but not commit. Want either or, not both.
+		removeExceptionEvent(ctx);
+		// Also remove the test event as we want either the exception event or the test event.
 		removeEvent(ctx);
-		testEvent.end();
+	}
+
+	private void removeExceptionEvent(TestExtensionContext ctx) {
+		errorMap.remove(ctx.getUniqueId());
 	}
 
 	private void removeEvent(TestExtensionContext ctx) {
