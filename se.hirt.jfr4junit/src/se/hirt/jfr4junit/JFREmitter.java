@@ -31,7 +31,7 @@
  */
 package se.hirt.jfr4junit;
 
-import org.junit.gen5.api.extension.TestExtensionContext;
+import org.junit.jupiter.api.extension.ExtensionContext;
 
 /**
  * Interface for event emitters.
@@ -42,13 +42,13 @@ public interface JFREmitter {
 	/**
 	 * Called when a test is started.
 	 */
-	void startEvent(TestExtensionContext ctx);
+	void startEvent(ExtensionContext ctx);
 	/**
 	 * Called when a test is ended.
 	 */
-	void endEvent(TestExtensionContext ctx);
+	void endEvent(ExtensionContext ctx);
 	/**
 	 * Called when a test has thrown an exception.
 	 */
-	void endException(TestExtensionContext ctx, Throwable t);
+	void endException(ExtensionContext ctx, Throwable t);
 }

@@ -31,7 +31,7 @@
  */
 package se.hirt.jfr4junit;
 
-import org.junit.gen5.api.extension.TestExtensionContext;
+import org.junit.jupiter.api.extension.ExtensionContext;
 
 /**
  * Emitter class for when no JFR implementation could be found.
@@ -41,14 +41,14 @@ import org.junit.gen5.api.extension.TestExtensionContext;
 public class NullEmitter implements JFREmitter {
 
 	@Override
-	public void startEvent(TestExtensionContext ctx) {
+	public void startEvent(ExtensionContext ctx) {
 	}
 
 	@Override
-	public void endEvent(TestExtensionContext ctx) {
+	public void endEvent(ExtensionContext ctx) {
 	}
 
 	@Override
-	public void endException(TestExtensionContext ctx, Throwable t) {
+	public void endException(ExtensionContext ctx, Throwable t) {
 	}
 }

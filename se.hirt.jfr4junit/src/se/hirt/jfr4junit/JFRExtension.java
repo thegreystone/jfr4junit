@@ -33,10 +33,10 @@ package se.hirt.jfr4junit;
 
 import java.util.logging.Logger;
 
-import org.junit.gen5.api.extension.AfterEachCallback;
-import org.junit.gen5.api.extension.BeforeEachCallback;
-import org.junit.gen5.api.extension.TestExecutionExceptionHandler;
-import org.junit.gen5.api.extension.TestExtensionContext;
+import org.junit.jupiter.api.extension.AfterEachCallback;
+import org.junit.jupiter.api.extension.BeforeEachCallback;
+import org.junit.jupiter.api.extension.ExtensionContext;
+import org.junit.jupiter.api.extension.TestExecutionExceptionHandler;
 
 /**
  * The JUnit5 extension class.
@@ -70,17 +70,17 @@ public class JFRExtension implements BeforeEachCallback, AfterEachCallback, Test
 	}
 
 	@Override
-	public void beforeEach(TestExtensionContext ctx) throws Exception {
+	public void beforeEach(ExtensionContext ctx) throws Exception {
 		EMITTER.startEvent(ctx);
 	}
 
 	@Override
-	public void afterEach(TestExtensionContext ctx) throws Exception {
+	public void afterEach(ExtensionContext ctx) throws Exception {
 		EMITTER.endEvent(ctx);
 	}
 
 	@Override
-	public void handleTestExecutionException(TestExtensionContext ctx, Throwable e) throws Throwable {
+	public void handleTestExecutionException(ExtensionContext ctx, Throwable e) throws Throwable {
 		EMITTER.endException(ctx, e);
 	}
 	

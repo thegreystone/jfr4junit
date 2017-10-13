@@ -31,9 +31,10 @@
  */
 package se.hirt.jfr4junit;
 
-import static org.junit.gen5.api.Assertions.assertEquals;
-import org.junit.gen5.api.Test;
-import org.junit.gen5.api.extension.ExtendWith;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 /**
  * Example test class using the JFRExtension.

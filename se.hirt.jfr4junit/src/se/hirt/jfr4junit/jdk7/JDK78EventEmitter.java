@@ -34,7 +34,7 @@ package se.hirt.jfr4junit.jdk7;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.junit.gen5.api.extension.TestExtensionContext;
+import org.junit.jupiter.api.extension.ExtensionContext;
 
 import se.hirt.jfr4junit.JFREmitter;
 
@@ -49,7 +49,7 @@ public class JDK78EventEmitter implements JFREmitter {
 	private final Map<String, ExceptionEvent> errorMap = new ConcurrentHashMap<>();
 
 	@Override
-	public void startEvent(TestExtensionContext ctx) {
+	public void startEvent(ExtensionContext ctx) {
 		TestEvent testEvent = new TestEvent();
 		ExceptionEvent exceptionEvent = new ExceptionEvent();
 
@@ -64,7 +64,7 @@ public class JDK78EventEmitter implements JFREmitter {
 	}
 
 	@Override
-	public void endEvent(TestExtensionContext ctx) {
+	public void endEvent(ExtensionContext ctx) {
 		TestEvent testEvent = eventMap.get(ctx.getUniqueId());
 		if (testEvent == null) {
 			// Got an exception event - all done
@@ -77,7 +77,7 @@ public class JDK78EventEmitter implements JFREmitter {
 	}
 
 	@Override
-	public void endException(TestExtensionContext ctx, Throwable t) {
+	public void endException(ExtensionContext ctx, Throwable t) {
 		ExceptionEvent exceptionEvent = errorMap.get(ctx.getUniqueId());
 		if (exceptionEvent == null) {
 			// This really should not happen...
@@ -92,11 +92,11 @@ public class JDK78EventEmitter implements JFREmitter {
 		removeEvent(ctx);
 	}
 
-	private void removeExceptionEvent(TestExtensionContext ctx) {
+	private void removeExceptionEvent(ExtensionContext ctx) {
 		errorMap.remove(ctx.getUniqueId());
 	}
 
-	private void removeEvent(TestExtensionContext ctx) {
+	private void removeEvent(ExtensionContext ctx) {
 		eventMap.remove(ctx.getUniqueId());
 	}
 }
